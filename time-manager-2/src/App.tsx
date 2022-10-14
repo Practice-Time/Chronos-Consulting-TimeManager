@@ -1,6 +1,6 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
-import Consultant from "./Pages/consultant";
+import Consultant from "./Pages/Consultant";
 import Manager from "./Pages/Manager";
 import TestPage from "./Pages/TestPage";
 import UserLogin from "./Pages/UserLogin";
