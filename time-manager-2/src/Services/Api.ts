@@ -1,5 +1,15 @@
 import axios from "axios";
 
+export interface ConsultantData {
+  Name: string;
+  Schedule: Schedule[];
+}
+
+export interface Schedule {
+  Date: string;
+  Client: string;
+}
+
 export interface ApiResponse {
   "F 14/10/2022 AM": string;
   "F 14/10/2022 PM": string;
