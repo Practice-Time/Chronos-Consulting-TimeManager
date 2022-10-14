@@ -1,39 +1,21 @@
-import React, { useEffect, useState } from "react";
-import logo from "./logo.svg";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
-import { ApiResponse, getConsultantSchedule } from "./Services/Api";
+import Consultant from "./Pages/consultant";
+import Manager from "./Pages/manger";
+import TestPage from "./Pages/TestPage";
+import UserLogin from "./Pages/UserLogin";
 
 function App() {
-  const [data, setData] = useState<ApiResponse | null>(null);
-  const [loading, setLoading] = useState(false);
-
-  useEffect(() => {
-    getData();
-  }, []);
-
-  const getData = async () => {
-    setLoading(true);
-
-    return await getConsultantSchedule()
-      .then((response) => setData(response.data))
-      .finally(() => setLoading(false));
-  };
-
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        {loading && <p>Loading</p>}
-        {!loading && <p>{JSON.stringify(data)}</p>}
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<TestPage />} />
+          <Route path="/Consultant" element={<Consultant />} />
+          <Route path="/Manager" element={<Manager />} />
+          <Route path="/UserLogin" element={<UserLogin />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
